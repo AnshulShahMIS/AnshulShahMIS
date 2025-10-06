@@ -1,0 +1,616 @@
+<!--
+====================================================================
+ANSHUL SHAH - CYBERSECURITY PORTFOLIO
+ABOUT PAGE (about.html)
+====================================================================
+
+PURPOSE: Detailed information about background, education, skills, and certifications
+
+FEATURES:
+- Personal biography and career overview
+- Education timeline with 3 institutions
+- Technical skills organized in 5 categories
+- Certifications displayed as badges
+- Honors and awards section
+
+SECTIONS:
+1. Who I Am - Personal introduction and career goals
+2. Education - Academic background (Masters, Bachelors, High School)
+3. Technical Skills - Security Operations, Tools, Programming, Frameworks, AI
+4. Certifications - 5 professional certifications
+
+NAVIGATION:
+- Same navigation menu as all other pages
+- "About" link is highlighted as active
+
+AUTHOR: Anshul Shah
+CONTACT: mail4anshul@gmail.com
+LINKEDIN: https://www.linkedin.com/in/anshulshah5/
+LAST UPDATED: 2025
+
+NOTES:
+- Save this file as "about.html" in the same folder as index.html
+- All styling is embedded (matches home page design)
+- Fully responsive for mobile, tablet, and desktop
+- Includes Eagle Scout and Zipperman Scholar mentions
+====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Anshul Shah - Cybersecurity Professional specializing in security operations and threat detection.">
+    <title>About | Anshul Shah</title>
+    
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-glow: rgba(100, 255, 218, 0.1);
+            --text: #8892b0;
+            --text-bright: #ccd6f6;
+            --text-highlight: #e6f1ff;
+            --max-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--accent-glow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-glow);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::before {
+            content: '>';
+            color: var(--accent);
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        main {
+            padding: 120px 40px 60px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text-highlight);
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+        
+        .bio-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .bio-section h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+        
+        .bio-section p {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .bio-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .education-section h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .education-item {
+            padding: 25px;
+            border-left: 3px solid var(--accent);
+            background: rgba(100, 255, 218, 0.05);
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        
+        .education-item .degree {
+            color: var(--text-bright);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .education-item .duration {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .skills-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .skills-section h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-glow);
+        }
+        
+        .skill-category h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3::before {
+            content: '▸';
+            font-size: 1.5rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            color: var(--text-bright);
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .certifications-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .certifications-section h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .cert-badge {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .cert-badge:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--accent-glow);
+        }
+        
+        .cert-badge p {
+            color: var(--text-bright);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 30px 40px;
+            border-top: 1px solid var(--accent-glow);
+            margin-top: 100px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--accent-glow);
+            }
+            
+            main {
+                padding: 100px 20px 40px;
+            }
+            
+            .bio-section,
+            .education-section,
+            .skills-section,
+            .certifications-section {
+                padding: 25px;
+            }
+            
+            .skills-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Anshul Shah</a>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main id="main">
+        <header class="page-header">
+            <h1 class="page-title">About Me</h1>
+            <p class="page-subtitle">> Cybersecurity Professional in Training</p>
+        </header>
+        
+        <div class="about-content">
+            <section class="bio-section">
+                <h2>Who I Am</h2>
+                <p>
+                    I'm a cybersecurity professional pursuing my Master's in Management Information Systems at the University of Arizona. 
+                    With hands-on experience as a Security Operations Intern at Workato, I've developed expertise in monitoring SIEM alerts, 
+                    building security dashboards, and automating threat detection workflows.
+                </p>
+                <p>
+                    My passion for cybersecurity stems from a deep commitment to protecting systems and data in an increasingly connected world. 
+                    I combine technical security skills with analytical thinking to identify vulnerabilities, respond to threats, and implement 
+                    robust security solutions. Whether it's analyzing network traffic with Wireshark, deploying AWS security policies, or 
+                    developing automated notification systems, I approach every challenge with curiosity and determination.
+                </p>
+                <p>
+                    Beyond my technical work, I'm an Eagle Scout and Zipperman Scholar, values that have instilled in me a strong sense of 
+                    leadership, service, and continuous learning. I'm actively exploring cybersecurity analyst opportunities where I can 
+                    contribute to building secure, resilient systems.
+                </p>
+            </section>
+            
+            <section class="education-section">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <h3>University of Arizona</h3>
+                    <p class="degree">Master of Science - Management Information Systems</p>
+                    <p class="duration">August 2025 - December 2026</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>University of Arizona</h3>
+                    <p class="degree">Bachelor of Science - Business Administration, Management Information Systems</p>
+                    <p class="duration">August 2020 - December 2024</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Gunn High School</h3>
+                    <p class="degree">High School Diploma</p>
+                    <p class="duration">August 2016 - June 2020</p>
+                </div>
+            </section>
+            
+            <section class="skills-section">
+                <h2>Technical Skills</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Security Operations</h3>
+                        <ul class="skill-list">
+                            <li>SIEM Tools & Alert Triage</li>
+                            <li>Threat Detection & Response</li>
+                            <li>Vulnerability Management</li>
+                            <li>Incident Documentation</li>
+                            <li>Security Frameworks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Technical Tools</h3>
+                        <ul class="skill-list">
+                            <li>Wireshark (Network Analysis)</li>
+                            <li>Sigma Dashboards</li>
+                            <li>AWS (IAM, Load Balancers)</li>
+                            <li>Active Directory</li>
+                            <li>Oracle SQL Developer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Programming & Scripting</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Automation Scripts</li>
+                            <li>Server Development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Frameworks & Methodologies</h3>
+                        <ul class="skill-list">
+                            <li>FAIR-U Risk Assessment</li>
+                            <li>Cloud Security Best Practices</li>
+                            <li>Network Security Protocols</li>
+                            <li>Security Documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Emerging Technologies</h3>
+                        <ul class="skill-list">
+                            <li>Machine Learning</li>
+                            <li>Gemini AI</li>
+                            <li>Gen AI & Business Ops</li>
+                            <li>Agentic AI (Workato)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="certifications-section">
+                <h2>Certifications</h2>
+                
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <p><strong>Data Analytics Excel</strong></p>
+                    </div>
+                    <div class="cert-badge">
+                        <p><strong>SentinelOne: Endpoint Protection for Beginners</strong></p>
+                    </div>
+                    <div class="cert-badge">
+                        <p><strong>Intel: Internship Project - Data Analysis for Sustainability</strong></p>
+                    </div>
+                    <div class="cert-badge">
+                        <p><strong>Gen AI & Business Ops</strong></p>
+                    </div>
+                    <div class="cert-badge">
+                        <p><strong>Workato Agentic AI Basics</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!--
+====================================================================
+ANSHUL SHAH - CYBERSECURITY PORTFOLIO
+CONNECT PAGE (connect.html)
+====================================================================
+
+PURPOSE: Contact page for professional networking and job opportunities
+
+FEATURES:
+- Contact cards for Email and LinkedIn (clickable)
+- Availability status showing open to opportunities
+- Contact form that opens user's email client
+- Professional layout for easy connection
+
+CONTACT METHODS:
+1. Email: mail4anshul@gmail.com
+2. LinkedIn: https://www.linkedin.com/in/anshulshah5/
+
+FORM FUNCTIONALITY:
+- Contact form collects: name, email, subject, message
+- On submit, opens user's default email client with pre-filled data
+- Sends to: mail4anshul@gmail.com
+
+NAVIGATION:
+- Same navigation menu as all other pages
+- "Connect" link is highlighted as active
+
+AUTHOR: Anshul Shah
+CONTACT: mail4anshul@gmail.com
+LINKEDIN: https://www.linkedin.com/in/anshulshah5/
+LAST UPDATED: 2025
+
+NOTES:
+- Save this file as "connect.html" in the same folder as index.html
+- Contact cards are clickable and link directly to email/LinkedIn
+- Form uses mailto: protocol (no backend required)
+- "Open to Opportunities" badge indicates job search status
+- Fully responsive for all devices
+====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connect with Anshul Shah - Cybersecurity Professional. Get in touch for opportunities, collaboration, or questions.">
+    <title>Connect | Anshul Shah</title>
+    
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-glow: rgba(100, 255, 218, 0.1);
+            --text: #8892b0;
+            --text-bright: #ccd6f6;
+            --text-highlight: #e6f1ff;
+            --max-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--accent-glow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-glow);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::before {
+            content: '>';
+            color: var(--accent);
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        main {
+            padding: 120px 40px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text-highlight);
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+        }
+        
+        .page-description {
+            color: var(--text);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .connect-content {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .contact-methods {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .contact-methods h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-size: 1rem;
+            word-break: break-word;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-form-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 40px;
+        }
+        
+        .contact-form-section h2 {
+            color: var(--text-highlight);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-description {
+            color: var(--text);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid var(--accent-glow);
+            border-radius: 4px;
+            color: var(--text-bright);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            color: var(--primary);
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        .availability-section {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .availability-section h3 {
+            color: var(--text-highlight);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .availability-section p {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(107, 207, 127, 0.2);
+            color: #6bcf7f;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 15px;
+            border: 1px solid #6bcf7f;
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 30px 40px;
+            border-top: 1px solid var(--accent-glow);
+            margin-top: 100px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--accent-glow);
+            }
+            
+            main {
+                padding: 100px 20px 40px;
+            }
+            
+            .contact-methods,
+            .contact-form-section,
+            .availability-section {
+                padding: 25px 20px;
+            }
+            
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Anshul Shah</a>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="connect.html" class="active">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main id="main">
+        <header class="page-header">
+            <h1 class="page-title">Let's Connect</h1>
+            <p class="page-subtitle">> Ready to collaborate</p>
+            <p class="page-description">
+                I'm always interested in discussing cybersecurity opportunities, collaboration on security projects, 
+                or simply connecting with fellow professionals in the field.
+            </p>
+        </header>
+        
+        <div class="connect-content">
+            <section class="contact-methods">
+                <h2>Get in Touch</h2>
+                <div class="contact-cards">
+                    <div class="contact-card" onclick="window.location.href='mailto:mail4anshul@gmail.com'">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:mail4anshul@gmail.com">mail4anshul@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/anshulshah5/', '_blank')">
+                        <div class="contact-icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/anshulshah5/" target="_blank" rel="noopener noreferrer">linkedin.com/in/anshulshah5</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="availability-section">
+                <h3>Current Availability</h3>
+                <p>
+                    I'm currently pursuing my Master's in Management Information Systems at the University of Arizona 
+                    and actively exploring cybersecurity analyst opportunities.
+                </p>
+                <span class="status-badge">✓ Open to Opportunities</span>
+            </section>
+            
+            <section class="contact-form-section">
+                <h2>Send a Message</h2>
+                <p class="form-description">
+                    Have a question or opportunity? Feel free to reach out using the form below.
+                </p>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:mail4anshul@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Optional: Show confirmation
+            alert('Opening your email client...');
+        }
+    </script>
+</body>
+</html>

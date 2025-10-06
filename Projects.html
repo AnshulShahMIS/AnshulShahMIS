@@ -1,0 +1,584 @@
+<!--
+====================================================================
+ANSHUL SHAH - CYBERSECURITY PORTFOLIO
+PROJECTS PAGE (projects.html)
+====================================================================
+
+PURPOSE: Showcase cybersecurity projects with detailed descriptions and impact
+
+FEATURES:
+- 5 major cybersecurity project cards
+- Visual gradient headers with icons for each project
+- Impact statements with quantified results
+- Technology tags for each project
+- Hover effects and animations
+
+PROJECTS INCLUDED:
+1. SIEM Security Operations - Alert monitoring and incident response
+2. Security Analytics Dashboard - Sigma dashboard development
+3. Network Traffic Analysis - Wireshark packet analysis
+4. Cloud Security & IAM - AWS security implementation
+5. Risk Assessment & Active Directory - FAIR-U and AD configuration
+
+NAVIGATION:
+- Same navigation menu as all other pages
+- "Projects" link is highlighted as active
+
+AUTHOR: Anshul Shah
+CONTACT: mail4anshul@gmail.com
+LINKEDIN: https://www.linkedin.com/in/anshulshah5/
+LAST UPDATED: 2025
+
+NOTES:
+- Save this file as "projects.html" in the same folder as index.html
+- Each project card has unique gradient color scheme
+- Impact boxes highlight measurable achievements
+- Fully responsive grid layout
+====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersecurity Projects by Anshul Shah - SIEM Operations, Security Dashboards, Threat Detection, and Cloud Security.">
+    <title>Projects | Anshul Shah</title>
+    
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-glow: rgba(100, 255, 218, 0.1);
+            --text: #8892b0;
+            --text-bright: #ccd6f6;
+            --text-highlight: #e6f1ff;
+            --max-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--accent-glow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-glow);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::before {
+            content: '>';
+            color: var(--accent);
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        main {
+            padding: 120px 40px 60px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text-highlight);
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+        }
+        
+        .page-description {
+            color: var(--text);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .project-card {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(100, 255, 218, 0.2);
+        }
+        
+        .project-header {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(45deg, var(--accent-glow) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--accent-glow) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--accent-glow) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--accent-glow) 75%);
+            background-size: 20px 20px;
+        }
+        
+        .project-icon {
+            font-size: 4rem;
+            z-index: 1;
+        }
+        
+        .project-header.security {
+            background: linear-gradient(135deg, #0a192f 0%, #1a3a5f 100%);
+        }
+        
+        .project-header.dashboard {
+            background: linear-gradient(135deg, #1a3a5f 0%, #0a4d4d 100%);
+        }
+        
+        .project-header.network {
+            background: linear-gradient(135deg, #1a3a5f 0%, #2a1a5f 100%);
+        }
+        
+        .project-header.cloud {
+            background: linear-gradient(135deg, #2a1a5f 0%, #4d1a3a 100%);
+        }
+        
+        .project-header.risk {
+            background: linear-gradient(135deg, #4d1a3a 0%, #5f1a1a 100%);
+        }
+        
+        .project-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            color: var(--text-highlight);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .project-impact {
+            background: rgba(100, 255, 218, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .project-impact strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .project-impact p {
+            color: var(--text-bright);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--accent-glow);
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 30px 40px;
+            border-top: 1px solid var(--accent-glow);
+            margin-top: 100px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--accent-glow);
+            }
+            
+            main {
+                padding: 100px 20px 40px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Anshul Shah</a>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main id="main">
+        <header class="page-header">
+            <h1 class="page-title">Projects</h1>
+            <p class="page-subtitle">> Security Operations & Threat Detection</p>
+            <p class="page-description">
+                A showcase of my cybersecurity work including SIEM operations, security dashboard development, 
+                automated threat detection, and cloud security implementations.
+            </p>
+        </header>
+        
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-header security">
+                    <div class="project-icon">🛡️</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">SIEM Security Operations</h2>
+                    <p class="project-description">
+                        Monitored and triaged 20–50 SIEM alerts weekly at Workato, resolving Tier 1 incidents and documenting 
+                        response actions to support the security team's incident management process. Implemented systematic 
+                        alert prioritization and response protocols.
+                    </p>
+                    <div class="project-impact">
+                        <strong>IMPACT</strong>
+                        <p>Reduced escalation workload for senior security team members through effective initial triage and comprehensive documentation</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">SIEM</span>
+                        <span class="tag">Threat Detection</span>
+                        <span class="tag">Incident Response</span>
+                        <span class="tag">Security Operations</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-header dashboard">
+                    <div class="project-icon">📊</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Security Analytics Dashboard</h2>
+                    <p class="project-description">
+                        Designed and deployed 5+ Sigma dashboards leveraging Product Security Portal data, enabling real-time 
+                        tracking of security bugs and issue trends. Created interactive visualizations for improved decision-making 
+                        and security posture monitoring.
+                    </p>
+                    <div class="project-impact">
+                        <strong>IMPACT</strong>
+                        <p>Cut report preparation time by 30%, streamlining security team workflows and enhancing visibility into security metrics</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Sigma</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Security Metrics</span>
+                        <span class="tag">Dashboard Design</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-header network">
+                    <div class="project-icon">🔍</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Network Traffic Analysis</h2>
+                    <p class="project-description">
+                        Conducted comprehensive packet analysis using Wireshark to capture and evaluate network traffic patterns, 
+                        identifying potential security anomalies and protocol vulnerabilities. Analyzed TCP/IP communications and 
+                        detected unusual traffic behaviors.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>Network protocols, packet inspection, traffic pattern analysis, security anomaly detection, and forensic investigation techniques</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Wireshark</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag">Traffic Analysis</span>
+                        <span class="tag">Protocol Analysis</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-header cloud">
+                    <div class="project-icon">☁️</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Cloud Security & IAM</h2>
+                    <p class="project-description">
+                        Deployed AWS IAM policies, configured static websites with security best practices, and implemented load 
+                        balancers to ensure secure and scalable cloud infrastructure. Established least-privilege access controls 
+                        and multi-factor authentication.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>AWS IAM, cloud security architecture, access control policies, infrastructure security, and secure deployment practices</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">IAM</span>
+                        <span class="tag">Cloud Security</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-header risk">
+                    <div class="project-icon">📋</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Risk Assessment & Active Directory</h2>
+                    <p class="project-description">
+                        Applied cybersecurity frameworks through academic projects including risk assessments with FAIR-U and 
+                        Active Directory configuration in virtualized environments. Implemented Group Policy Objects and security 
+                        hardening measures.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>FAIR-U framework, risk quantification, Active Directory, security policy implementation, and enterprise identity management</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">FAIR-U</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">Risk Assessment</span>
+                        <span class="tag">Policy Management</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

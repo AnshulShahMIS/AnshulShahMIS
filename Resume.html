@@ -1,0 +1,345 @@
+<!--
+====================================================================
+ANSHUL SHAH - CYBERSECURITY PORTFOLIO
+RESUME PAGE (resume.html)
+====================================================================
+
+PURPOSE: Professional resume with complete work history, education, and qualifications
+
+FEATURES:
+- Downloadable resume button (PDF link placeholder)
+- Professional summary highlighting cybersecurity expertise
+- Complete work experience timeline with bullet points
+- Education section with all degrees
+- Technical skills organized by category
+- Certifications and honors/awards
+
+SECTIONS:
+1. Resume Header - Name, title, contact information
+2. Summary - Professional overview and specialties
+3. Experience - 4 positions (AI Solutions Intern, Security Ops Intern, Product Marketing Intern, Cashier)
+4. Education - 3 institutions (Masters, Bachelors, High School)
+5. Technical Skills - 4 categories
+6. Certifications - 5 professional certifications
+7. Honors & Awards - Eagle Scout, Zipperman Scholar, Academic Distinction
+
+NAVIGATION:
+- Same navigation menu as all other pages
+- "Resume" link is highlighted as active
+
+AUTHOR: Anshul Shah
+CONTACT: mail4anshul@gmail.com
+LINKEDIN: https://www.linkedin.com/in/anshulshah5/
+LAST UPDATED: 2025
+
+NOTES:
+- Save this file as "resume.html" in the same folder as index.html
+- Timeline design with visual indicators for each position
+- Download PDF button is a placeholder - add your actual PDF link later
+- All achievements include quantified metrics
+====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Anshul Shah - Cybersecurity Professional with experience in security operations and threat detection.">
+    <title>Resume | Anshul Shah</title>
+    
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-glow: rgba(100, 255, 218, 0.1);
+            --text: #8892b0;
+            --text-bright: #ccd6f6;
+            --text-highlight: #e6f1ff;
+            --max-width: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--accent-glow) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-glow);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::before {
+            content: '>';
+            color: var(--accent);
+            margin-right: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        main {
+            padding: 120px 40px 60px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text-highlight);
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 15px 35px;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+        
+        .download-btn:hover {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        .resume-content {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .resume-header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--accent-glow);
+            margin-bottom: 40px;
+        }
+        
+        .resume-header h2 {
+            color: var(--text-highlight);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .resume-header .title {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .resume-header .contact-info {
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        .resume-header .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .resume-header .contact-info a:hover {
+            opacity: 0.8;
+        }
+        
+        .resume-section {
+            margin-bottom: 50px;
+        }
+        
+        .resume-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-glow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: '▸';
+            font-size: 1.5rem;
+        }
+        
+        .summary-text {
+            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .specialties {
+            color: var(--text-bright);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .specialties strong {
+            color: var(--accent);
+        }
+        
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 25px;
+            border-left: 3px solid var(--accent);
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .experience-header {
+            margin-bottom: 12px;
+        }
+        
+        .job-title {
+            color: var(--text-highlight);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
