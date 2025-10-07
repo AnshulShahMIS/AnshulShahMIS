@@ -9,7 +9,7 @@ PURPOSE: Landing page showcasing cybersecurity expertise and core competencies
 FEATURES:
 - Hero section with name, title, and call-to-action buttons
 - 6 Core Competency cards highlighting security skills
-- Statistics section showing key achievements
+- Relevant Coursework section with undergraduate and master's courses
 - Responsive navigation menu
 - Cybersecurity-themed dark design with teal accents
 
@@ -346,7 +346,7 @@ NOTES:
             line-height: 1.7;
         }
         
-        /* Stats Section */
+        /* Stats/Coursework Section */
         .stats {
             background: var(--secondary);
             padding: 80px 40px;
@@ -355,25 +355,81 @@ NOTES:
             border-bottom: 1px solid var(--accent-glow);
         }
         
-        .stats-grid {
+        .stats-header {
+            text-align: center;
+            max-width: var(--max-width);
+            margin: 0 auto 60px;
+        }
+        
+        .coursework-title {
+            font-size: 2.5rem;
+            color: var(--text-highlight);
+            margin-bottom: 15px;
+        }
+        
+        .coursework-subtitle {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .coursework-container {
             max-width: var(--max-width);
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
         }
         
-        .stat-item h3 {
-            font-size: 3rem;
+        .coursework-category {
+            margin-bottom: 50px;
+        }
+        
+        .coursework-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-title {
             color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
         }
         
-        .stat-item p {
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .course-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px var(--accent-glow);
+        }
+        
+        .course-card.masters {
+            background: rgba(100, 255, 218, 0.08);
+            border-color: var(--accent);
+        }
+        
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .course-name {
             color: var(--text-bright);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-weight: 500;
         }
         
         /* Footer */
@@ -438,6 +494,14 @@ NOTES:
             .btn {
                 width: 100%;
                 max-width: 300px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coursework-title {
+                font-size: 2rem;
             }
         }
         
@@ -527,22 +591,45 @@ NOTES:
         </section>
         
         <section class="stats">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>20-50</h3>
-                    <p>Weekly SIEM Alerts Triaged</p>
+            <div class="stats-header">
+                <h2 class="coursework-title">Relevant Coursework</h2>
+                <p class="coursework-subtitle">Specialized education in cybersecurity and data management</p>
+            </div>
+            <div class="coursework-container">
+                <div class="coursework-category">
+                    <h3 class="category-title">Undergraduate Courses</h3>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <div class="course-icon">🌐</div>
+                            <p class="course-name">Business Data Communications & Networking</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">💻</div>
+                            <p class="course-name">Data Structures and Algorithms</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">🔒</div>
+                            <p class="course-name">Information Security Risk Management</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">🛡️</div>
+                            <p class="course-name">Systems Security Management</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3>30%</h3>
-                    <p>Report Prep Time Reduced</p>
-                </div>
-                <div class="stat-item">
-                    <h3>5+</h3>
-                    <p>Security Dashboards Built</p>
-                </div>
-                <div class="stat-item">
-                    <h3>10%</h3>
-                    <p>Faster Threat Response</p>
+                
+                <div class="coursework-category">
+                    <h3 class="category-title">Master's Courses</h3>
+                    <div class="courses-grid">
+                        <div class="course-card masters">
+                            <div class="course-icon">📊</div>
+                            <p class="course-name">Enterprise Data Management</p>
+                        </div>
+                        <div class="course-card masters">
+                            <div class="course-icon">🤖</div>
+                            <p class="course-name">Data Mining & Machine Learning</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -550,7 +637,7 @@ NOTES:
     
     <footer role="contentinfo">
         <div class="footer-bottom">
-            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio. This website is made with the help of Claude</p>
         </div>
     </footer>
     
