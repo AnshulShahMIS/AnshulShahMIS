@@ -14,6 +14,14 @@ FEATURES:
 - Technical skills and certifications
 - Projects section
 
+ORDER (matching Word document):
+1. Education
+2. Technical Skills
+3. Professional Skills
+4. Certifications
+5. Projects
+6. Experience
+
 AUTHOR: Anshul Shah
 CONTACT: mail4anshul@gmail.com
 PHONE: (650)-796-7096
@@ -23,7 +31,7 @@ LAST UPDATED: 2025
 NOTES:
 - Save this file as "resume.html" in the same folder as index.html
 - Place "Anshul_Shah_Resume.pdf" in the same folder for download button
-- Timeline design with visual indicators for each position
+- Make sure PDF is not corrupted - test opening it first
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -269,77 +277,6 @@ NOTES:
             font-size: 1.5rem;
         }
         
-        .experience-item {
-            margin-bottom: 35px;
-            padding-left: 25px;
-            border-left: 3px solid var(--accent);
-            position: relative;
-        }
-        
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 13px;
-            height: 13px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-        }
-        
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .experience-header {
-            margin-bottom: 12px;
-        }
-        
-        .job-title {
-            color: var(--text-highlight);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .company {
-            color: var(--accent);
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-        
-        .duration {
-            color: var(--text);
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-        
-        .experience-description {
-            margin-top: 15px;
-        }
-        
-        .experience-description ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .experience-description li {
-            color: var(--text);
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.6;
-        }
-        
-        .experience-description li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-        
         .education-item {
             margin-bottom: 25px;
             padding: 20px;
@@ -422,6 +359,77 @@ NOTES:
             border-left: 4px solid var(--accent);
             color: var(--text-bright);
             line-height: 1.6;
+        }
+        
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 25px;
+            border-left: 3px solid var(--accent);
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .experience-header {
+            margin-bottom: 12px;
+        }
+        
+        .job-title {
+            color: var(--text-highlight);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        
+        .duration {
+            color: var(--text);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        .experience-description {
+            margin-top: 15px;
+        }
+        
+        .experience-description ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-description li {
+            color: var(--text);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .experience-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
         
         footer {
@@ -531,6 +539,7 @@ NOTES:
                 </div>
             </div>
             
+            <!-- SECTION 1: EDUCATION -->
             <section class="resume-section">
                 <h3 class="section-title">Education</h3>
                 
@@ -547,6 +556,47 @@ NOTES:
                 </div>
             </section>
             
+            <!-- SECTION 2: TECHNICAL SKILLS -->
+            <section class="resume-section">
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="skill-category">
+                    <p>AirMDR, Zscaler, ZeroFox, SentinelOne, Astrix, Okta, SIEM Tools, Stacklet, OpenSearch, Jamf, Sigma, Workato, AWS, Tableau, SQL, Python, Wireshark, Ubuntu, Drupal, Figma, Jira, Apple Software/Hardware, Windows, Data Analysis, MS Office Suite, Google GSuite</p>
+                </div>
+            </section>
+            
+            <!-- SECTION 3: PROFESSIONAL SKILLS -->
+            <section class="resume-section">
+                <h3 class="section-title">Skills</h3>
+                <div class="skill-category">
+                    <p>Leadership, Accountability, Collaboration & Teamwork, Communication, Problem-Solving, Adaptability, Detail Oriented</p>
+                </div>
+            </section>
+            
+            <!-- SECTION 4: CERTIFICATIONS -->
+            <section class="resume-section">
+                <h3 class="section-title">Certifications</h3>
+                <div class="certifications-list">
+                    <div class="cert-item">SentinelOne Endpoint Protection</div>
+                    <div class="cert-item">Google Cybersecurity Professional</div>
+                    <div class="cert-item">Microsoft IT Support Specialist Specialization</div>
+                    <div class="cert-item">InfoSec4TC</div>
+                    <div class="cert-item">Workato Pro I-III</div>
+                </div>
+            </section>
+            
+            <!-- SECTION 5: PROJECTS -->
+            <section class="resume-section">
+                <h3 class="section-title">Projects</h3>
+                <ul class="projects-list">
+                    <li>Ran risk assessment about cyber criminals and privileged insiders using Fairu</li>
+                    <li>Created virtual machine using vSphere Web Client and configured Active Directory with user permissions</li>
+                    <li>Utilized Wireshark to capture and analyze HTTP, TCP, DNS, DHCP, SMTP, POP & ARP traffic</li>
+                    <li>Created an IAM & Root user, Static Website, CloudFront, Windows instance & load balancer on AWS</li>
+                    <li>Implemented Python to create an HTTP server, client & UDP server & client using PyCharm</li>
+                </ul>
+            </section>
+            
+            <!-- SECTION 6: EXPERIENCE -->
             <section class="resume-section">
                 <h3 class="section-title">Experience</h3>
                 
@@ -595,65 +645,12 @@ NOTES:
                     </div>
                 </div>
             </section>
-            
-            <section class="resume-section">
-                <h3 class="section-title">Technical Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Security Tools</h4>
-                        <p>AirMDR, Zscaler, ZeroFox, SentinelOne, Astrix, Okta, SIEM Tools, Stacklet, OpenSearch, Jamf, Sigma</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Cloud & Development</h4>
-                        <p>AWS, Workato, Python, SQL, Wireshark, Ubuntu, PyCharm</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Business Tools</h4>
-                        <p>Tableau, Drupal, Figma, Jira, MS Office Suite, Google GSuite</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Systems</h4>
-                        <p>Apple Software/Hardware, Windows, Data Analysis</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="resume-section">
-                <h3 class="section-title">Professional Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <p>Leadership, Accountability, Collaboration & Teamwork, Communication, Problem-Solving, Adaptability, Detail Oriented</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="resume-section">
-                <h3 class="section-title">Certifications</h3>
-                <div class="certifications-list">
-                    <div class="cert-item">SentinelOne Endpoint Protection</div>
-                    <div class="cert-item">Google Cybersecurity Professional</div>
-                    <div class="cert-item">Microsoft IT Support Specialist Specialization</div>
-                    <div class="cert-item">InfoSec4TC</div>
-                    <div class="cert-item">Workato Pro I-III</div>
-                </div>
-            </section>
-            
-            <section class="resume-section">
-                <h3 class="section-title">Projects</h3>
-                <ul class="projects-list">
-                    <li>Ran risk assessment about cyber criminals and privileged insiders using Fairu</li>
-                    <li>Created virtual machine using vSphere Web Client and configured Active Directory with user permissions</li>
-                    <li>Utilized Wireshark to capture and analyze HTTP, TCP, DNS, DHCP, SMTP, POP & ARP traffic</li>
-                    <li>Created an IAM & Root user, Static Website, CloudFront, Windows instance & load balancer on AWS</li>
-                    <li>Implemented Python to create an HTTP server, client & UDP server & client using PyCharm</li>
-                </ul>
-            </section>
         </div>
     </main>
     
     <footer role="contentinfo">
         <div class="footer-bottom">
-            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio. This website is made with the help of Claude.</p>
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
         </div>
     </footer>
     
