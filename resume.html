@@ -7,36 +7,23 @@ RESUME PAGE (resume.html)
 PURPOSE: Professional resume with complete work history, education, and qualifications
 
 FEATURES:
-- Downloadable resume button (PDF link placeholder)
+- Downloadable resume PDF button
 - Professional summary highlighting cybersecurity expertise
-- Complete work experience timeline with bullet points
-- Education section with all degrees
-- Technical skills organized by category
-- Certifications and honors/awards
-
-SECTIONS:
-1. Resume Header - Name, title, contact information
-2. Summary - Professional overview and specialties
-3. Experience - 4 positions (AI Solutions Intern, Security Ops Intern, Product Marketing Intern, Cashier)
-4. Education - 3 institutions (Masters, Bachelors, High School)
-5. Technical Skills - 4 categories
-6. Certifications - 5 professional certifications
-7. Honors & Awards - Eagle Scout, Zipperman Scholar, Academic Distinction
-
-NAVIGATION:
-- Same navigation menu as all other pages
-- "Resume" link is highlighted as active
+- Complete work experience with bullet points
+- Education section with degrees
+- Technical skills and certifications
+- Projects section
 
 AUTHOR: Anshul Shah
 CONTACT: mail4anshul@gmail.com
+PHONE: (650)-796-7096
 LINKEDIN: https://www.linkedin.com/in/anshulshah5/
 LAST UPDATED: 2025
 
 NOTES:
 - Save this file as "resume.html" in the same folder as index.html
+- Place "Anshul_Shah_Resume.pdf" in the same folder for download button
 - Timeline design with visual indicators for each position
-- Download PDF button is a placeholder - add your actual PDF link later
-- All achievements include quantified metrics
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -239,18 +226,13 @@ NOTES:
         .resume-header h2 {
             color: var(--text-highlight);
             font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .resume-header .title {
-            color: var(--accent);
-            font-size: 1.3rem;
             margin-bottom: 15px;
         }
         
         .resume-header .contact-info {
             color: var(--text);
             font-size: 1rem;
+            line-height: 1.8;
         }
         
         .resume-header .contact-info a {
@@ -285,23 +267,6 @@ NOTES:
         .section-title::before {
             content: '▸';
             font-size: 1.5rem;
-        }
-        
-        .summary-text {
-            color: var(--text);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        .specialties {
-            color: var(--text-bright);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        
-        .specialties strong {
-            color: var(--accent);
         }
         
         .experience-item {
@@ -343,3 +308,369 @@ NOTES:
             font-size: 1.15rem;
             font-weight: 600;
         }
+        
+        .duration {
+            color: var(--text);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        .experience-description {
+            margin-top: 15px;
+        }
+        
+        .experience-description ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-description li {
+            color: var(--text);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .experience-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item h3 {
+            color: var(--text-highlight);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .degree {
+            color: var(--text-bright);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+        
+        .edu-duration {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-glow);
+        }
+        
+        .skill-category h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        
+        .skill-category p {
+            color: var(--text-bright);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+            color: var(--text-bright);
+            font-size: 1rem;
+        }
+        
+        .projects-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .projects-list li {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+            color: var(--text-bright);
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: var(--secondary);
+            padding: 30px 40px;
+            border-top: 1px solid var(--accent-glow);
+            margin-top: 100px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 25, 47, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--accent-glow);
+            }
+            
+            main {
+                padding: 100px 20px 40px;
+            }
+            
+            .resume-content {
+                padding: 30px 20px;
+            }
+            
+            .resume-header h2 {
+                font-size: 2rem;
+            }
+            
+            .skills-grid,
+            .certifications-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Anshul Shah</a>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main id="main">
+        <header class="page-header">
+            <h1 class="page-title">Resume</h1>
+            <p class="page-subtitle">> Professional Experience & Qualifications</p>
+            <a href="Anshul_Shah_Resume.pdf" class="download-btn" download>📥 Download PDF Resume</a>
+        </header>
+        
+        <div class="resume-content">
+            <div class="resume-header">
+                <h2>Anshul Shah</h2>
+                <div class="contact-info">
+                    <p>(650)-796-7096 | <a href="mailto:mail4anshul@gmail.com">mail4anshul@gmail.com</a></p>
+                    <p><a href="https://www.linkedin.com/in/anshulshah5/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+                    <a href="https://anshulshah.com">Portfolio</a></p>
+                </div>
+            </div>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Education</h3>
+                
+                <div class="education-item">
+                    <h3>University of Arizona, Eller College of Management</h3>
+                    <p class="degree">Master of Science in Management Information Systems</p>
+                    <p class="edu-duration">August 2025 - Present | Tucson, Arizona</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>University of Arizona, Eller College of Management</h3>
+                    <p class="degree">Bachelor of Science in Business Administration</p>
+                    <p class="edu-duration">August 2020 - December 2024 | Tucson, Arizona</p>
+                </div>
+            </section>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4 class="job-title">AI Solutions Intern</h4>
+                        <p class="company">Workato Inc</p>
+                        <p class="duration">August 2025 - Present | Palo Alto, California</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Create documentation and Data Frame Diagram for Workato automations on Workato GO source crawling</li>
+                            <li>Attend customer calls to understand user requirements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4 class="job-title">Security Operations Intern</h4>
+                        <p class="company">Workato Inc</p>
+                        <p class="duration">March 2025 - July 2025 | Palo Alto, California</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Monitored and triaged 20–50 SIEM alerts weekly, resolving Tier 1 incidents and documenting response actions, reducing escalation workload</li>
+                            <li>Designed 5+ Sigma dashboards leveraging Product Security Portal data, enabling the security team to track issue trends and improve decision-making efficiency, cutting report prep time by 30%</li>
+                            <li>Conducted QA testing of 100+ enterprise search queries in Workato GO, providing structured feedback that improved search result accuracy by 20% and reduced duplicate results</li>
+                            <li>Built an automated Genie notification system that flagged vulnerabilities from external sources in real-time, reducing detection-to-response lag by 10%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4 class="job-title">Product Marketing Intern</h4>
+                        <p class="company">Workato Inc</p>
+                        <p class="duration">May 2020 - July 2020 | Mountain View, California</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Collaborated with one team member, contributing to five-person team to craft authentic customer stories</li>
+                            <li>Wrote, peer-reviewed scripts, and edited customer story videos using Adobe Premier Pro, ensuring compelling narratives</li>
+                            <li>Maintained consistent tone, pacing, and branding across all customer stories to enhance viewer engagement and product impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Security Tools</h4>
+                        <p>AirMDR, Zscaler, ZeroFox, SentinelOne, Astrix, Okta, SIEM Tools, Stacklet, OpenSearch, Jamf, Sigma</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Cloud & Development</h4>
+                        <p>AWS, Workato, Python, SQL, Wireshark, Ubuntu, PyCharm</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Business Tools</h4>
+                        <p>Tableau, Drupal, Figma, Jira, MS Office Suite, Google GSuite</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Systems</h4>
+                        <p>Apple Software/Hardware, Windows, Data Analysis</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Professional Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <p>Leadership, Accountability, Collaboration & Teamwork, Communication, Problem-Solving, Adaptability, Detail Oriented</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Certifications</h3>
+                <div class="certifications-list">
+                    <div class="cert-item">SentinelOne Endpoint Protection</div>
+                    <div class="cert-item">Google Cybersecurity Professional</div>
+                    <div class="cert-item">Microsoft IT Support Specialist Specialization</div>
+                    <div class="cert-item">InfoSec4TC</div>
+                    <div class="cert-item">Workato Pro I-III</div>
+                </div>
+            </section>
+            
+            <section class="resume-section">
+                <h3 class="section-title">Projects</h3>
+                <ul class="projects-list">
+                    <li>Ran risk assessment about cyber criminals and privileged insiders using Fairu</li>
+                    <li>Created virtual machine using vSphere Web Client and configured Active Directory with user permissions</li>
+                    <li>Utilized Wireshark to capture and analyze HTTP, TCP, DNS, DHCP, SMTP, POP & ARP traffic</li>
+                    <li>Created an IAM & Root user, Static Website, CloudFront, Windows instance & load balancer on AWS</li>
+                    <li>Implemented Python to create an HTTP server, client & UDP server & client using PyCharm</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
