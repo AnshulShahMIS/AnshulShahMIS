@@ -332,31 +332,81 @@ NOTES:
             line-height: 1.3;
         }
         
-        .top-strength {
+        .top-strengths {
             background: rgba(100, 255, 218, 0.1);
             border: 2px solid var(--accent);
             border-radius: 8px;
-            padding: 25px;
-            text-align: center;
+            padding: 30px;
             margin-top: 30px;
         }
         
-        .top-strength h3 {
+        .top-strengths h3 {
             color: var(--accent);
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: center;
         }
         
-        .top-strength .strength-name {
-            font-size: 2.5rem;
+        .strength-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--secondary);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .strength-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .strength-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .strength-rank {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .strength-details {
+            flex: 1;
+        }
+        
+        .strength-name {
+            font-size: 1.5rem;
             color: var(--text-highlight);
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
         
-        .top-strength p {
+        .strength-domain {
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 10px;
+        }
+        
+        .domain-feeling {
+            color: #ffd93d;
+        }
+        
+        .domain-motivating {
+            color: var(--accent);
+        }
+        
+        .domain-doing {
+            color: #ff6b9d;
+        }
+        
+        .strength-details p {
             color: var(--text);
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.7;
         }
         
@@ -468,6 +518,15 @@ NOTES:
                 padding: 25px 15px;
             }
             
+            .strength-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .strength-rank {
+                text-align: left;
+            }
+            
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -560,14 +619,69 @@ NOTES:
                     </div>
                 </div>
                 
-                <div class="top-strength">
-                    <h3>🌟 My #1 Strength</h3>
-                    <div class="strength-name">Empathizer</div>
-                    <p>
-                        As an Empathizer, I naturally understand and connect with people's emotions and perspectives. 
-                        This strength helps me collaborate effectively in security teams, understand user needs, and 
-                        communicate technical concepts in ways that resonate with diverse stakeholders.
-                    </p>
+                <div class="top-strengths">
+                    <h3>🌟 My Top 5 Strengths</h3>
+                    
+                    <div class="strength-item">
+                        <div class="strength-rank">1</div>
+                        <div class="strength-details">
+                            <div class="strength-name">Empathizer</div>
+                            <div class="strength-domain domain-feeling">Feeling domain</div>
+                            <p>
+                                I naturally understand and connect with people's emotions and perspectives. 
+                                This strength helps me collaborate effectively in security teams, understand user needs, and 
+                                communicate technical concepts in ways that resonate with diverse stakeholders.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-rank">2</div>
+                        <div class="strength-details">
+                            <div class="strength-name">Catalyst</div>
+                            <div class="strength-domain domain-motivating">Motivating domain</div>
+                            <p>
+                                I initiate change and drive progress by spotting opportunities and encouraging action. 
+                                In cybersecurity, this helps me advocate for security improvements and rally teams around critical initiatives.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-rank">3</div>
+                        <div class="strength-details">
+                            <div class="strength-name">Time Keeper</div>
+                            <div class="strength-domain domain-doing">Doing domain</div>
+                            <p>
+                                I excel at managing deadlines and ensuring timely completion of projects. 
+                                This strength is crucial in security operations where quick response times and meeting SLAs can make the difference in threat mitigation.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-rank">4</div>
+                        <div class="strength-details">
+                            <div class="strength-name">Commander</div>
+                            <div class="strength-domain domain-motivating">Motivating domain</div>
+                            <p>
+                                I take charge in challenging situations and guide teams toward clear objectives. 
+                                This leadership strength helps me coordinate incident response efforts and drive security projects to successful completion.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="strength-item">
+                        <div class="strength-rank">5</div>
+                        <div class="strength-details">
+                            <div class="strength-name">Storyteller</div>
+                            <div class="strength-domain domain-motivating">Motivating domain</div>
+                            <p>
+                                I communicate complex ideas through compelling narratives that engage and inform. 
+                                In cybersecurity, this helps me translate technical findings into meaningful insights for stakeholders and create impactful security awareness.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
             
