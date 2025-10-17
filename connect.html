@@ -9,7 +9,7 @@ PURPOSE: Contact page for professional networking and job opportunities
 FEATURES:
 - Contact cards for Email and LinkedIn (clickable)
 - Availability status showing open to opportunities
-- Contact form that opens user's email client
+- Working contact form using Web3Forms (no backend needed)
 - Professional layout for easy connection
 
 CONTACT METHODS:
@@ -18,8 +18,15 @@ CONTACT METHODS:
 
 FORM FUNCTIONALITY:
 - Contact form collects: name, email, subject, message
-- On submit, opens user's default email client with pre-filled data
+- Uses Web3Forms API (free, unlimited submissions)
+- Shows success/error messages
 - Sends to: mail4anshul@gmail.com
+
+SETUP INSTRUCTIONS:
+1. Go to https://web3forms.com
+2. Enter your email (mail4anshul@gmail.com)
+3. Get your Access Key
+4. Replace "YOUR_ACCESS_KEY_HERE" in the form with your actual key
 
 NAVIGATION:
 - Same navigation menu as all other pages
@@ -29,13 +36,6 @@ AUTHOR: Anshul Shah
 CONTACT: mail4anshul@gmail.com
 LINKEDIN: https://www.linkedin.com/in/anshulshah5/
 LAST UPDATED: 2025
-
-NOTES:
-- Save this file as "connect.html" in the same folder as index.html
-- Contact cards are clickable and link directly to email/LinkedIn
-- Form uses mailto: protocol (no backend required)
-- "Open to Opportunities" badge indicates job search status
-- Fully responsive for all devices
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -348,10 +348,38 @@ NOTES:
             transition: all 0.3s ease;
         }
         
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             background: transparent;
             color: var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .form-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .form-message.success {
+            background: rgba(107, 207, 127, 0.2);
+            border: 1px solid #6bcf7f;
+            color: #6bcf7f;
+            display: block;
+        }
+        
+        .form-message.error {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+            display: block;
         }
         
         .availability-section {
@@ -516,7 +544,18 @@ NOTES:
                     Have a question or opportunity? Feel free to reach out using the form below.
                 </p>
                 
-                <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div id="formMessage" class="form-message"></div>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="c7814e59-29ef-45b4-850e-5cf849a78112">
+                    
+                    <!-- Optional: Custom subject line (will be overwritten by user's subject field) -->
+                    <input type="hidden" name="from_name" value="Anshul Shah Portfolio">
+                    
+                    <!-- Optional: Redirect after submission (set to false for AJAX handling) -->
+                    <input type="hidden" name="redirect" value="false">
+                    
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -537,7 +576,10 @@ NOTES:
                         <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <!-- Honeypot for spam protection -->
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                 </form>
             </section>
         </div>
@@ -564,23 +606,57 @@ NOTES:
             }
         });
         
-        function handleSubmit(event) {
-            event.preventDefault();
+        // Handle form submission
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
             
-            // Create mailto link with form data
-            const mailtoLink = `mailto:mail4anshul@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+            // Hide any previous messages
+            formMessage.className = 'form-message';
+            formMessage.textContent = '';
             
-            // Open email client
-            window.location.href = mailtoLink;
+            // Get form data
+            const formData = new FormData(form);
             
-            // Optional: Show confirmation
-            alert('Opening your email client...');
-        }
+            try {
+                // Submit to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Success
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    form.reset();
+                } else {
+                    // Error
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '✗ Something went wrong. Please try again or email me directly.';
+                }
+            } catch (error) {
+                // Network error
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Network error. Please check your connection and try again.';
+            }
+            
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            
+            // Scroll to message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
     </script>
 </body>
 </html>
