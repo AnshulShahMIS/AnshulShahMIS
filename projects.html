@@ -6,34 +6,10 @@ PROJECTS PAGE (projects.html)
 
 PURPOSE: Showcase cybersecurity projects with detailed descriptions and impact
 
-FEATURES:
-- 5 major cybersecurity project cards
-- Visual gradient headers with icons for each project
-- Impact statements with quantified results
-- Technology tags for each project
-- Hover effects and animations
-
-PROJECTS INCLUDED:
-1. SIEM Security Operations - Alert monitoring and incident response
-2. Security Analytics Dashboard - Sigma dashboard development
-3. Network Traffic Analysis - Wireshark packet analysis
-4. Cloud Security & IAM - AWS security implementation
-5. Risk Assessment & Active Directory - FAIR-U and AD configuration
-
-NAVIGATION:
-- Same navigation menu as all other pages
-- "Projects" link is highlighted as active
-
 AUTHOR: Anshul Shah
 CONTACT: mail4anshul@gmail.com
 LINKEDIN: https://www.linkedin.com/in/anshulshah5/
 LAST UPDATED: 2025
-
-NOTES:
-- Save this file as "projects.html" in the same folder as index.html
-- Each project card has unique gradient color scheme
-- Impact boxes highlight measurable achievements
-- Fully responsive grid layout
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -205,12 +181,38 @@ NOTES:
             max-width: 700px;
             margin: 0 auto;
         }
+
+        /* Category section labels */
+        .category-label {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--accent-glow);
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .category-label:first-of-type {
+            margin-top: 0;
+        }
         
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
         }
         
         .project-card {
@@ -277,6 +279,19 @@ NOTES:
         
         .project-header.risk {
             background: linear-gradient(135deg, #4d1a3a 0%, #5f1a1a 100%);
+        }
+
+        /* New gradient styles for new projects */
+        .project-header.ml {
+            background: linear-gradient(135deg, #0a3a2f 0%, #1a5f3a 100%);
+        }
+
+        .project-header.deeplearn {
+            background: linear-gradient(135deg, #1a2a5f 0%, #0a3a5f 100%);
+        }
+
+        .project-header.pentest {
+            background: linear-gradient(135deg, #3a1a0a 0%, #5f2a0a 100%);
         }
         
         .project-content {
@@ -432,10 +447,10 @@ NOTES:
             <p class="page-subtitle">> Security Operations & Threat Detection</p>
             <p class="page-description">
                 A showcase of my cybersecurity work including SIEM operations, security dashboard development, 
-                automated threat detection, and cloud security implementations.
+                machine learning threat detection, penetration testing, and cloud security implementations.
             </p>
         </header>
-        
+
         <div class="projects-grid">
             <article class="project-card">
                 <div class="project-header security">
@@ -460,7 +475,7 @@ NOTES:
                     </div>
                 </div>
             </article>
-            
+
             <article class="project-card">
                 <div class="project-header dashboard">
                     <div class="project-icon">📊</div>
@@ -484,7 +499,7 @@ NOTES:
                     </div>
                 </div>
             </article>
-            
+
             <article class="project-card">
                 <div class="project-header network">
                     <div class="project-icon">🔍</div>
@@ -508,7 +523,7 @@ NOTES:
                     </div>
                 </div>
             </article>
-            
+
             <article class="project-card">
                 <div class="project-header cloud">
                     <div class="project-icon">☁️</div>
@@ -532,7 +547,7 @@ NOTES:
                     </div>
                 </div>
             </article>
-            
+
             <article class="project-card">
                 <div class="project-header risk">
                     <div class="project-icon">📋</div>
@@ -553,6 +568,84 @@ NOTES:
                         <span class="tag">Active Directory</span>
                         <span class="tag">Risk Assessment</span>
                         <span class="tag">Policy Management</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header pentest">
+                    <div class="project-icon">⚔️</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Penetration Testing Lab</h2>
+                    <p class="project-description">
+                        Executed a full penetration test across a multi-host lab environment, simulating real-world attack scenarios 
+                        from reconnaissance through exploitation. Used industry-standard tools to enumerate services, identify vulnerabilities, 
+                        crack credentials, and exploit web application weaknesses. Delivered a formal report with prioritized remediation recommendations.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>Vulnerability enumeration, exploitation, credential attacks, web app security testing, and professional findings documentation</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Nmap</span>
+                        <span class="tag">Wireshark</span>
+                        <span class="tag">Nessus</span>
+                        <span class="tag">Metasploit</span>
+                        <span class="tag">John the Ripper</span>
+                        <span class="tag">WebGoat</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header ml">
+                    <div class="project-icon">🎣</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Phishing URL Detection (ML)</h2>
+                    <p class="project-description">
+                        Collaborated with a team of 5 to build a phishing URL detection model using the PhiUSIIL dataset. 
+                        Applied Python (pandas, scikit-learn) for data preprocessing and feature selection, then trained and 
+                        evaluated multiple classifiers — Logistic Regression, SVM, Decision Tree, Random Forest, and K-NN — 
+                        to identify the most effective approach for detecting malicious URLs.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>Feature engineering, model comparison, classification algorithms, dataset preprocessing, and team-based ML development</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">pandas</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Phishing Detection</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header deeplearn">
+                    <div class="project-icon">🧠</div>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Deep Learning Fraud Detection</h2>
+                    <p class="project-description">
+                        Analyzed 200,000 real banking transactions in Python and Google Colab to benchmark fraud detection 
+                        approaches across three model architectures. Compared a traditional Logistic Regression baseline against 
+                        a Multi-Layer Perceptron (MLP) and an LSTM recurrent network, evaluating trade-offs in accuracy, 
+                        recall, and suitability for sequential financial data.
+                    </p>
+                    <div class="project-impact">
+                        <strong>SKILLS APPLIED</strong>
+                        <p>Deep learning, LSTM networks, imbalanced dataset handling, model benchmarking, and financial fraud pattern analysis</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">LSTM</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Google Colab</span>
+                        <span class="tag">Fraud Detection</span>
                     </div>
                 </div>
             </article>
