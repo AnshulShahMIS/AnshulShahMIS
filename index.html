@@ -3,30 +3,10 @@
 ANSHUL SHAH - CYBERSECURITY PORTFOLIO
 HOME PAGE (index.html)
 ====================================================================
-
-PURPOSE: Landing page showcasing cybersecurity expertise and core competencies
-
-FEATURES:
-- Hero section with name, title, and call-to-action buttons
-- 6 Core Competency cards highlighting security skills
-- Relevant Coursework section with undergraduate and master's courses
-- Responsive navigation menu
-- Cybersecurity-themed dark design with teal accents
-
-NAVIGATION:
-- Links to: About, Resume, Projects, Connect pages
-- Mobile-responsive hamburger menu
-
 AUTHOR: Anshul Shah
 CONTACT: mail4anshul@gmail.com
 LINKEDIN: https://www.linkedin.com/in/anshulshah5/
 LAST UPDATED: 2025
-
-NOTES:
-- Save this file as "index.html" in your project folder
-- Ensure all other pages (about.html, resume.html, etc.) are in the same folder
-- This is a static HTML/CSS website with minimal JavaScript
-- All styling is embedded (no external CSS files needed)
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -36,11 +16,9 @@ NOTES:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Anshul Shah - Cybersecurity Professional | MIS Master's Student specializing in security operations, threat detection, and cloud security.">
     <meta name="author" content="Anshul Shah">
-    
     <meta property="og:type" content="website">
     <meta property="og:title" content="Anshul Shah - Cybersecurity Portfolio">
     <meta property="og:description" content="Security Operations | Threat Detection | Cloud Security">
-    
     <title>Anshul Shah | Cybersecurity Portfolio</title>
     
     <style>
@@ -69,7 +47,6 @@ NOTES:
             overflow-x: hidden;
         }
         
-        /* Cyber grid background effect */
         body::before {
             content: '';
             position: fixed;
@@ -98,11 +75,8 @@ NOTES:
             z-index: 100;
         }
         
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -165,7 +139,6 @@ NOTES:
             opacity: 1;
         }
         
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             background: none;
@@ -177,13 +150,13 @@ NOTES:
             border-radius: 4px;
         }
         
-        /* Hero Section */
+        /* ── HERO FIX: true vertical center, no top padding offset ── */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 40px 60px;
+            padding: 80px 40px;
             position: relative;
         }
         
@@ -263,7 +236,6 @@ NOTES:
             box-shadow: 0 0 20px var(--accent-glow);
         }
         
-        /* Features Section */
         .features {
             padding: 100px 40px;
             max-width: var(--max-width);
@@ -326,9 +298,7 @@ NOTES:
             box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
         }
         
-        .feature-card:hover::before {
-            opacity: 1;
-        }
+        .feature-card:hover::before { opacity: 1; }
         
         .feature-icon {
             font-size: 3rem;
@@ -346,7 +316,6 @@ NOTES:
             line-height: 1.7;
         }
         
-        /* Stats/Coursework Section */
         .stats {
             background: var(--secondary);
             padding: 80px 40px;
@@ -382,9 +351,7 @@ NOTES:
             margin-bottom: 50px;
         }
         
-        .coursework-category:last-child {
-            margin-bottom: 0;
-        }
+        .coursework-category:last-child { margin-bottom: 0; }
         
         .category-title {
             color: var(--accent);
@@ -432,7 +399,6 @@ NOTES:
             font-weight: 500;
         }
         
-        /* Footer */
         footer {
             background: var(--secondary);
             padding: 30px 40px;
@@ -444,15 +410,10 @@ NOTES:
             color: var(--text);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 15px 20px;
-            }
+            .nav-container { padding: 15px 20px; }
             
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
             
             .nav-links {
                 position: absolute;
@@ -466,9 +427,7 @@ NOTES:
                 display: none;
             }
             
-            .nav-links.active {
-                display: flex;
-            }
+            .nav-links.active { display: flex; }
             
             .nav-links li {
                 width: 100%;
@@ -477,38 +436,22 @@ NOTES:
                 border-bottom: 1px solid var(--accent-glow);
             }
             
-            .hero {
-                padding: 100px 20px 40px;
-            }
+            .hero { padding: 80px 20px; }
             
             .features,
-            .stats {
-                padding: 60px 20px;
-            }
+            .stats { padding: 60px 20px; }
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+            .cta-buttons { flex-direction: column; align-items: center; }
             
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+            .btn { width: 100%; max-width: 300px; }
             
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
+            .courses-grid { grid-template-columns: 1fr; }
             
-            .coursework-title {
-                font-size: 2rem;
-            }
+            .coursework-title { font-size: 2rem; }
         }
         
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -557,31 +500,26 @@ NOTES:
                     <h3>Security Operations</h3>
                     <p>SIEM monitoring, alert triage, incident response, and security documentation. Experience managing 20-50 alerts weekly.</p>
                 </article>
-                
                 <article class="feature-card">
                     <div class="feature-icon">🔍</div>
                     <h3>Threat Detection</h3>
                     <p>Automated vulnerability detection, real-time monitoring, and proactive threat hunting using industry-leading tools.</p>
                 </article>
-                
                 <article class="feature-card">
                     <div class="feature-icon">☁️</div>
                     <h3>Cloud Security</h3>
                     <p>AWS IAM policies, secure infrastructure deployment, and cloud security best practices implementation.</p>
                 </article>
-                
                 <article class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3>Security Analytics</h3>
                     <p>Dashboard creation in Sigma, data visualization, and metrics tracking to improve security decision-making.</p>
                 </article>
-                
                 <article class="feature-card">
                     <div class="feature-icon">🌐</div>
                     <h3>Network Analysis</h3>
                     <p>Packet analysis with Wireshark, traffic pattern evaluation, and network security assessment.</p>
                 </article>
-                
                 <article class="feature-card">
                     <div class="feature-icon">⚙️</div>
                     <h3>Security Automation</h3>
@@ -617,7 +555,6 @@ NOTES:
                         </div>
                     </div>
                 </div>
-                
                 <div class="coursework-category">
                     <h3 class="category-title">Master's Courses</h3>
                     <div class="courses-grid">
@@ -659,12 +596,9 @@ NOTES:
             navLinks.classList.toggle('active');
         }
         
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
             if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
