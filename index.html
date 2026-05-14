@@ -1,14 +1,3 @@
-<!--
-====================================================================
-ANSHUL SHAH - CYBERSECURITY PORTFOLIO
-HOME PAGE (index.html)
-====================================================================
-AUTHOR: Anshul Shah
-CONTACT: mail4anshul@gmail.com
-LINKEDIN: https://www.linkedin.com/in/anshulshah5/
-LAST UPDATED: 2025
-====================================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +9,7 @@ LAST UPDATED: 2025
     <meta property="og:title" content="Anshul Shah - Cybersecurity Portfolio">
     <meta property="og:description" content="Security Operations | Threat Detection | Cloud Security">
     <title>Anshul Shah | Cybersecurity Portfolio</title>
-    
+
     <style>
         :root {
             --primary: #0a192f;
@@ -32,13 +21,9 @@ LAST UPDATED: 2025
             --text-highlight: #e6f1ff;
             --max-width: 1200px;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             background: var(--primary);
@@ -46,15 +31,13 @@ LAST UPDATED: 2025
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
                 linear-gradient(var(--accent-glow) 1px, transparent 1px),
                 linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -62,11 +45,10 @@ LAST UPDATED: 2025
             z-index: -1;
             pointer-events: none;
         }
-        
+
         .skip-link {
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -40px; left: 0;
             background: var(--accent);
             color: var(--primary);
             padding: 8px 16px;
@@ -74,20 +56,18 @@ LAST UPDATED: 2025
             font-weight: 600;
             z-index: 100;
         }
-        
         .skip-link:focus { top: 0; }
-        
+
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             background: rgba(10, 25, 47, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-glow);
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-        
+
         .nav-container {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -96,7 +76,7 @@ LAST UPDATED: 2025
             align-items: center;
             padding: 20px 40px;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -104,14 +84,14 @@ LAST UPDATED: 2025
             text-decoration: none;
             font-family: 'Courier New', monospace;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 40px;
             align-items: center;
         }
-        
+
         .nav-links a {
             color: var(--text-bright);
             text-decoration: none;
@@ -120,7 +100,7 @@ LAST UPDATED: 2025
             position: relative;
             transition: color 0.3s ease;
         }
-        
+
         .nav-links a::before {
             content: '>';
             color: var(--accent);
@@ -128,17 +108,13 @@ LAST UPDATED: 2025
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
+
         .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-        
+        .nav-links a.active { color: var(--accent); }
+
         .nav-links a:hover::before,
-        .nav-links a.active::before {
-            opacity: 1;
-        }
-        
+        .nav-links a.active::before { opacity: 1; }
+
         .menu-toggle {
             display: none;
             background: none;
@@ -149,8 +125,8 @@ LAST UPDATED: 2025
             cursor: pointer;
             border-radius: 4px;
         }
-        
-        /* ── HERO FIX: true vertical center, no top padding offset ── */
+
+        /* HERO — true vertical center, no asymmetric padding offset */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -159,20 +135,12 @@ LAST UPDATED: 2025
             padding: 80px 40px;
             position: relative;
         }
-        
+
         .hero-content {
             max-width: var(--max-width);
             text-align: center;
         }
-        
-        .hero-intro {
-            color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-family: 'Courier New', monospace;
-        }
-        
+
         .hero h1 {
             font-size: clamp(3rem, 8vw, 5rem);
             color: var(--text-highlight);
@@ -180,14 +148,14 @@ LAST UPDATED: 2025
             margin-bottom: 20px;
             text-shadow: 0 0 20px var(--accent-glow);
         }
-        
+
         .hero h2 {
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             color: var(--text-bright);
             font-weight: 600;
             margin-bottom: 30px;
         }
-        
+
         .hero-description {
             font-size: 1.2rem;
             color: var(--text);
@@ -195,14 +163,14 @@ LAST UPDATED: 2025
             margin: 0 auto 50px;
             line-height: 1.8;
         }
-        
+
         .cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             padding: 15px 35px;
             font-size: 1rem;
@@ -214,108 +182,101 @@ LAST UPDATED: 2025
             border: 2px solid var(--accent);
             cursor: pointer;
         }
-        
+
         .btn-primary {
             background: var(--accent);
             color: var(--primary);
         }
-        
+
         .btn-primary:hover {
             background: transparent;
             color: var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
         }
-        
+
         .btn-secondary {
             background: transparent;
             color: var(--accent);
         }
-        
+
         .btn-secondary:hover {
             background: var(--accent-glow);
             box-shadow: 0 0 20px var(--accent-glow);
         }
-        
+
+        /* FEATURES */
         .features {
             padding: 100px 40px;
             max-width: var(--max-width);
             margin: 0 auto;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             color: var(--text-highlight);
             margin-bottom: 60px;
             text-align: center;
-            position: relative;
             display: inline-block;
             width: 100%;
         }
-        
+
         .section-title::before {
             content: '<';
             color: var(--accent);
             margin-right: 10px;
         }
-        
+
         .section-title::after {
             content: '/>';
             color: var(--accent);
             margin-left: 10px;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
             background: var(--secondary);
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100,255,218,0.1);
             border-radius: 8px;
             padding: 30px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        
+
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--accent), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+            box-shadow: 0 10px 30px rgba(100,255,218,0.2);
         }
-        
+
         .feature-card:hover::before { opacity: 1; }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
+
+        .feature-icon { font-size: 3rem; margin-bottom: 20px; }
+
         .feature-card h3 {
             color: var(--text-bright);
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
-        
-        .feature-card p {
-            color: var(--text);
-            line-height: 1.7;
-        }
-        
+
+        .feature-card p { color: var(--text); line-height: 1.7; }
+
+        /* COURSEWORK */
         .stats {
             background: var(--secondary);
             padding: 80px 40px;
@@ -323,36 +284,33 @@ LAST UPDATED: 2025
             border-top: 1px solid var(--accent-glow);
             border-bottom: 1px solid var(--accent-glow);
         }
-        
+
         .stats-header {
             text-align: center;
             max-width: var(--max-width);
             margin: 0 auto 60px;
         }
-        
+
         .coursework-title {
             font-size: 2.5rem;
             color: var(--text-highlight);
             margin-bottom: 15px;
         }
-        
+
         .coursework-subtitle {
             color: var(--accent);
             font-size: 1.2rem;
             font-family: 'Courier New', monospace;
         }
-        
+
         .coursework-container {
             max-width: var(--max-width);
             margin: 0 auto;
         }
-        
-        .coursework-category {
-            margin-bottom: 50px;
-        }
-        
+
+        .coursework-category { margin-bottom: 50px; }
         .coursework-category:last-child { margin-bottom: 0; }
-        
+
         .category-title {
             color: var(--accent);
             font-size: 1.5rem;
@@ -360,100 +318,83 @@ LAST UPDATED: 2025
             text-align: center;
             font-weight: 600;
         }
-        
+
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        
+
         .course-card {
-            background: rgba(100, 255, 218, 0.05);
+            background: rgba(100,255,218,0.05);
             border: 1px solid var(--accent-glow);
             border-radius: 8px;
             padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .course-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             box-shadow: 0 8px 20px var(--accent-glow);
         }
-        
+
         .course-card.masters {
-            background: rgba(100, 255, 218, 0.08);
+            background: rgba(100,255,218,0.08);
             border-color: var(--accent);
         }
-        
-        .course-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
+
+        .course-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
         .course-name {
             color: var(--text-bright);
             font-size: 1.05rem;
             line-height: 1.5;
             font-weight: 500;
         }
-        
+
         footer {
             background: var(--secondary);
             padding: 30px 40px;
             border-top: 1px solid var(--accent-glow);
         }
-        
-        .footer-bottom {
-            text-align: center;
-            color: var(--text);
-        }
-        
+
+        .footer-bottom { text-align: center; color: var(--text); }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-container { padding: 15px 20px; }
-            
             .menu-toggle { display: block; }
-            
+
             .nav-links {
                 position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 25, 47, 0.98);
+                top: 100%; left: 0; width: 100%;
+                background: rgba(10,25,47,0.98);
                 flex-direction: column;
-                gap: 0;
-                padding: 20px 0;
+                gap: 0; padding: 20px 0;
                 display: none;
             }
-            
+
             .nav-links.active { display: flex; }
-            
+
             .nav-links li {
-                width: 100%;
-                text-align: center;
+                width: 100%; text-align: center;
                 padding: 15px 0;
                 border-bottom: 1px solid var(--accent-glow);
             }
-            
+
             .hero { padding: 80px 20px; }
-            
-            .features,
-            .stats { padding: 60px 20px; }
-            
+            .features, .stats { padding: 60px 20px; }
             .cta-buttons { flex-direction: column; align-items: center; }
-            
             .btn { width: 100%; max-width: 300px; }
-            
             .courses-grid { grid-template-columns: 1fr; }
-            
             .coursework-title { font-size: 2rem; }
         }
-        
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
         }
@@ -461,7 +402,7 @@ LAST UPDATED: 2025
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
-    
+
     <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">Anshul Shah</a>
@@ -475,14 +416,14 @@ LAST UPDATED: 2025
             </ul>
         </div>
     </nav>
-    
+
     <main id="main">
         <section class="hero" role="banner">
             <div class="hero-content">
                 <h1>ANSHUL SHAH</h1>
                 <h2>Cybersecurity Professional</h2>
                 <p class="hero-description">
-                    MIS Master's Student specializing in security operations, threat detection, and cloud security. 
+                    MIS Master's Student specializing in security operations, threat detection, and cloud security.
                     Protecting systems and data through innovative security solutions and proactive threat management.
                 </p>
                 <div class="cta-buttons">
@@ -491,7 +432,7 @@ LAST UPDATED: 2025
                 </div>
             </div>
         </section>
-        
+
         <section class="features">
             <h2 class="section-title">Core Competencies</h2>
             <div class="features-grid">
@@ -527,7 +468,7 @@ LAST UPDATED: 2025
                 </article>
             </div>
         </section>
-        
+
         <section class="stats">
             <div class="stats-header">
                 <h2 class="coursework-title">Relevant Coursework</h2>
@@ -583,24 +524,22 @@ LAST UPDATED: 2025
             </div>
         </section>
     </main>
-    
+
     <footer role="contentinfo">
         <div class="footer-bottom">
             <p>&copy; 2025 Anshul Shah. Cybersecurity Portfolio. This website is made with the help of Claude.</p>
         </div>
     </footer>
-    
+
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
-        
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function(e) {
             const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
+            const links = document.getElementById('navLinks');
+            if (!nav.contains(e.target) && links.classList.contains('active')) {
+                links.classList.remove('active');
             }
         });
     </script>
