@@ -181,32 +181,6 @@ LAST UPDATED: 2025
             max-width: 700px;
             margin: 0 auto;
         }
-
-        /* Category section labels */
-        .category-label {
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: var(--accent);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            margin-top: 60px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .category-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--accent-glow);
-            border-top: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        .category-label:first-of-type {
-            margin-top: 0;
-        }
         
         .projects-grid {
             display: grid;
@@ -281,7 +255,6 @@ LAST UPDATED: 2025
             background: linear-gradient(135deg, #4d1a3a 0%, #5f1a1a 100%);
         }
 
-        /* New gradient styles for new projects */
         .project-header.ml {
             background: linear-gradient(135deg, #0a3a2f 0%, #1a5f3a 100%);
         }
@@ -353,6 +326,37 @@ LAST UPDATED: 2025
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid var(--accent-glow);
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+            margin-top: 4px;
+            align-self: flex-start;
+        }
+
+        .github-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 16px rgba(100, 255, 218, 0.3);
+        }
+
+        .github-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
         
         footer {
@@ -452,6 +456,8 @@ LAST UPDATED: 2025
         </header>
 
         <div class="projects-grid">
+
+            <!-- SIEM Security Operations — work project, no GitHub -->
             <article class="project-card">
                 <div class="project-header security">
                     <div class="project-icon">🛡️</div>
@@ -476,6 +482,7 @@ LAST UPDATED: 2025
                 </div>
             </article>
 
+            <!-- Security Analytics Dashboard — work project, no GitHub -->
             <article class="project-card">
                 <div class="project-header dashboard">
                     <div class="project-icon">📊</div>
@@ -500,6 +507,7 @@ LAST UPDATED: 2025
                 </div>
             </article>
 
+            <!-- Network Traffic Analysis — work project, no GitHub -->
             <article class="project-card">
                 <div class="project-header network">
                     <div class="project-icon">🔍</div>
@@ -524,6 +532,7 @@ LAST UPDATED: 2025
                 </div>
             </article>
 
+            <!-- Cloud Security & IAM — work project, no GitHub -->
             <article class="project-card">
                 <div class="project-header cloud">
                     <div class="project-icon">☁️</div>
@@ -548,6 +557,7 @@ LAST UPDATED: 2025
                 </div>
             </article>
 
+            <!-- Risk Assessment & Active Directory — work project, no GitHub -->
             <article class="project-card">
                 <div class="project-header risk">
                     <div class="project-icon">📋</div>
@@ -572,6 +582,7 @@ LAST UPDATED: 2025
                 </div>
             </article>
 
+            <!-- Penetration Testing Lab — GitHub: AnshulShahPenTestingReport.pdf -->
             <article class="project-card">
                 <div class="project-header pentest">
                     <div class="project-icon">⚔️</div>
@@ -595,9 +606,15 @@ LAST UPDATED: 2025
                         <span class="tag">John the Ripper</span>
                         <span class="tag">WebGoat</span>
                     </div>
+                    <a href="https://github.com/AnshulShahMIS/anshulportfolio-/blob/main/AnshulShahPenTestingReport.pdf"
+                       target="_blank" rel="noopener noreferrer" class="github-btn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        View Report on GitHub
+                    </a>
                 </div>
             </article>
 
+            <!-- Phishing URL Detection — GitHub: Machine Learning Cyber Phishing.ipynb -->
             <article class="project-card">
                 <div class="project-header ml">
                     <div class="project-icon">🎣</div>
@@ -621,9 +638,15 @@ LAST UPDATED: 2025
                         <span class="tag">Machine Learning</span>
                         <span class="tag">Phishing Detection</span>
                     </div>
+                    <a href="https://github.com/AnshulShahMIS/anshulportfolio-/blob/main/Machine%20Learning%20Cyber%20Phishing.ipynb"
+                       target="_blank" rel="noopener noreferrer" class="github-btn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        View Notebook on GitHub
+                    </a>
                 </div>
             </article>
 
+            <!-- Deep Learning Fraud Detection — GitHub: Deep Learning Cyber Fraud.ipynb -->
             <article class="project-card">
                 <div class="project-header deeplearn">
                     <div class="project-icon">🧠</div>
@@ -649,8 +672,14 @@ LAST UPDATED: 2025
                         <span class="tag">Google Colab</span>
                         <span class="tag">Fraud Detection</span>
                     </div>
+                    <a href="https://github.com/AnshulShahMIS/anshulportfolio-/blob/main/Deep%20Learning%20Cyber%20Fraud.ipynb"
+                       target="_blank" rel="noopener noreferrer" class="github-btn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        View Notebook on GitHub
+                    </a>
                 </div>
             </article>
+
         </div>
     </main>
     
