@@ -1,39 +1,3 @@
-<!--
-====================================================================
-ANSHUL SHAH - CYBERSECURITY PORTFOLIO
-RESUME PAGE (resume.html)
-====================================================================
-
-PURPOSE: Professional resume with complete work history, education, and qualifications
-
-FEATURES:
-- Downloadable resume PDF button
-- Professional summary highlighting cybersecurity expertise
-- Complete work experience with bullet points
-- Education section with degrees
-- Technical skills and certifications
-- Projects section
-
-ORDER (matching Word document):
-1. Education
-2. Technical Skills
-3. Professional Skills
-4. Certifications
-5. Projects
-6. Experience
-
-AUTHOR: Anshul Shah
-CONTACT: mail4anshul@gmail.com
-PHONE: (650)-796-7096
-LINKEDIN: https://www.linkedin.com/in/anshulshah5/
-LAST UPDATED: 2025
-
-NOTES:
-- Save this file as "resume.html" in the same folder as index.html
-- Place "Anshul_Shah_Resume.pdf" in the same folder for download button
-- Make sure PDF is not corrupted - test opening it first
-====================================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,11 +18,7 @@ NOTES:
             --max-width: 1200px;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
@@ -71,10 +31,8 @@ NOTES:
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image: 
                 linear-gradient(var(--accent-glow) 1px, transparent 1px),
                 linear-gradient(90deg, var(--accent-glow) 1px, transparent 1px);
@@ -86,8 +44,7 @@ NOTES:
         
         .skip-link {
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -40px; left: 0;
             background: var(--accent);
             color: var(--primary);
             padding: 8px 16px;
@@ -95,15 +52,11 @@ NOTES:
             font-weight: 600;
             z-index: 100;
         }
-        
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
         
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             background: rgba(10, 25, 47, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-glow);
@@ -153,14 +106,10 @@ NOTES:
         }
         
         .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
+        .nav-links a.active { color: var(--accent); }
         
         .nav-links a:hover::before,
-        .nav-links a.active::before {
-            opacity: 1;
-        }
+        .nav-links a.active::before { opacity: 1; }
         
         .menu-toggle {
             display: none;
@@ -178,10 +127,11 @@ NOTES:
             max-width: var(--max-width);
             margin: 0 auto;
         }
-        
+
+        /* PAGE HEADER */
         .page-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         
         .page-title {
@@ -194,244 +144,168 @@ NOTES:
             font-size: 1.3rem;
             color: var(--accent);
             font-family: 'Courier New', monospace;
+            margin-bottom: 40px;
         }
-        
-        .download-btn {
-            display: inline-block;
-            margin: 30px 0;
-            padding: 15px 35px;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
+
+        /* DOWNLOAD CARD */
+        .download-card {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            transition: border-color 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(100, 255, 218, 0.1);
+        }
+
+        .download-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .download-card h2 {
+            font-size: 1.8rem;
+            color: var(--text-highlight);
+            margin-bottom: 12px;
             font-weight: 600;
+        }
+
+        .download-card p {
+            color: var(--text);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+            line-height: 1.7;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
             border-radius: 4px;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             border: 2px solid var(--accent);
+            cursor: pointer;
         }
         
-        .download-btn:hover {
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
             background: transparent;
             color: var(--accent);
             box-shadow: 0 0 20px var(--accent-glow);
         }
         
-        .resume-content {
-            background: var(--secondary);
-            border: 1px solid var(--accent-glow);
-            border-radius: 8px;
-            padding: 50px;
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* SNAPSHOT SECTION */
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
             max-width: 900px;
             margin: 0 auto;
         }
-        
-        .resume-header {
-            text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--accent-glow);
-            margin-bottom: 40px;
+
+        .snapshot-card {
+            background: var(--secondary);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s ease;
         }
-        
-        .resume-header h2 {
-            color: var(--text-highlight);
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+
+        .snapshot-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(100, 255, 218, 0.15);
         }
-        
-        .resume-header .contact-info {
-            color: var(--text);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-        
-        .resume-header .contact-info a {
+
+        .snapshot-card h3 {
             color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        .resume-header .contact-info a:hover {
-            opacity: 0.8;
-        }
-        
-        .resume-section {
-            margin-bottom: 50px;
-        }
-        
-        .resume-section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .section-title {
-            color: var(--accent);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-glow);
+            font-size: 0.85rem;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-        
-        .section-title::before {
+
+        .snapshot-card h3::before {
             content: '▸';
-            font-size: 1.5rem;
         }
-        
-        .education-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(100, 255, 218, 0.05);
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-        }
-        
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .education-item h3 {
-            color: var(--text-highlight);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .degree {
-            color: var(--text-bright);
-            font-size: 1.05rem;
-            margin-bottom: 5px;
-        }
-        
-        .edu-duration {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            background: rgba(100, 255, 218, 0.05);
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid var(--accent-glow);
-        }
-        
-        .skill-category h4 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-        }
-        
-        .skill-category p {
-            color: var(--text-bright);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-        
-        .certifications-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .cert-item {
-            background: rgba(100, 255, 218, 0.05);
-            padding: 15px 20px;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-            color: var(--text-bright);
-            font-size: 1rem;
-        }
-        
-        .projects-list {
+
+        .snapshot-card ul {
             list-style: none;
             padding: 0;
         }
-        
-        .projects-list li {
-            background: rgba(100, 255, 218, 0.05);
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
+
+        .snapshot-card ul li {
             color: var(--text-bright);
-            line-height: 1.6;
-        }
-        
-        .experience-item {
-            margin-bottom: 35px;
-            padding-left: 25px;
-            border-left: 3px solid var(--accent);
-            position: relative;
-        }
-        
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 13px;
-            height: 13px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-        }
-        
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .experience-header {
-            margin-bottom: 12px;
-        }
-        
-        .job-title {
-            color: var(--text-highlight);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .company {
-            color: var(--accent);
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-        
-        .duration {
-            color: var(--text);
             font-size: 0.95rem;
-            font-style: italic;
-        }
-        
-        .experience-description {
-            margin-top: 15px;
-        }
-        
-        .experience-description ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .experience-description li {
-            color: var(--text);
-            padding: 8px 0;
-            padding-left: 20px;
+            padding: 5px 0;
+            padding-left: 16px;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        
-        .experience-description li::before {
-            content: '→';
+
+        .snapshot-card ul li::before {
+            content: '–';
             position: absolute;
             left: 0;
             color: var(--accent);
-            font-weight: bold;
         }
-        
+
+        .snapshot-label {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 32px;
+        }
+
+        .snapshot-label h2 {
+            font-size: 1.6rem;
+            color: var(--text-highlight);
+            margin-bottom: 8px;
+        }
+
+        .snapshot-label p {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
         footer {
             background: var(--secondary);
             padding: 30px 40px;
@@ -445,61 +319,35 @@ NOTES:
         }
         
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 15px 20px;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
+            .nav-container { padding: 15px 20px; }
+            .menu-toggle { display: block; }
             
             .nav-links {
                 position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                top: 100%; left: 0; width: 100%;
                 background: rgba(10, 25, 47, 0.98);
                 flex-direction: column;
-                gap: 0;
-                padding: 20px 0;
+                gap: 0; padding: 20px 0;
                 display: none;
             }
             
-            .nav-links.active {
-                display: flex;
-            }
+            .nav-links.active { display: flex; }
             
             .nav-links li {
-                width: 100%;
-                text-align: center;
+                width: 100%; text-align: center;
                 padding: 15px 0;
                 border-bottom: 1px solid var(--accent-glow);
             }
             
-            main {
-                padding: 100px 20px 40px;
-            }
-            
-            .resume-content {
-                padding: 30px 20px;
-            }
-            
-            .resume-header h2 {
-                font-size: 2rem;
-            }
-            
-            .skills-grid,
-            .certifications-list {
-                grid-template-columns: 1fr;
-            }
+            main { padding: 100px 20px 40px; }
+            .download-card { padding: 40px 24px; }
+            .btn-group { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 280px; justify-content: center; }
         }
         
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
         }
@@ -526,125 +374,73 @@ NOTES:
         <header class="page-header">
             <h1 class="page-title">Resume</h1>
             <p class="page-subtitle">> Professional Experience & Qualifications</p>
-            <a href="https://drive.google.com/file/d/1xkrXtxpWngaCDPqFJrlLbOVB89UWFPvU/view?usp=sharing" class="download-btn" target="_blank" rel="noopener noreferrer">📄 View PDF Resume</a>
         </header>
-        
-        <div class="resume-content">
-            <div class="resume-header">
-                <h2>Anshul Shah</h2>
-                <div class="contact-info">
-                    <p>(650)-796-7096 | <a href="mailto:mail4anshul@gmail.com">mail4anshul@gmail.com</a></p>
-                    <p><a href="https://www.linkedin.com/in/anshulshah5/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
-                    <a href="https://anshulshah.com">Portfolio</a></p>
-                </div>
+
+        <!-- DOWNLOAD CARD -->
+        <div class="download-card">
+            <span class="download-icon">📄</span>
+            <h2>Anshul Shah</h2>
+            <p>Cybersecurity professional with hands-on experience in security operations, threat detection, penetration testing, and machine learning-based defense. Available for full-time and internship opportunities.</p>
+            <div class="btn-group">
+                <a href="https://drive.google.com/file/d/1xkrXtxpWngaCDPqFJrlLbOVB89UWFPvU/view?usp=sharing"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    📄 View Resume
+                </a>
+                <a href="https://drive.google.com/uc?export=download&id=1xkrXtxpWngaCDPqFJrlLbOVB89UWFPvU"
+                   class="btn btn-secondary">
+                    ⬇ Download PDF
+                </a>
             </div>
-            
-            <!-- SECTION 1: EDUCATION -->
-            <section class="resume-section">
-                <h3 class="section-title">Education</h3>
-                
-                <div class="education-item">
-                    <h3>University of Arizona, Eller College of Management</h3>
-                    <p class="degree">Master of Science in Management Information Systems</p>
-                    <p class="edu-duration">August 2025 - Present | Tucson, Arizona</p>
-                </div>
-                
-                <div class="education-item">
-                    <h3>University of Arizona, Eller College of Management</h3>
-                    <p class="degree">Bachelor of Science in Management Information Systems</p>
-                    <p class="edu-duration">August 2020 - December 2024 | Tucson, Arizona</p>
-                </div>
-            </section>
-            
-            <!-- SECTION 2: TECHNICAL SKILLS -->
-            <section class="resume-section">
-                <h3 class="section-title">Technical Skills</h3>
-                <div class="skill-category">
-                    <p>AirMDR, Zscaler, ZeroFox, SentinelOne, Astrix, Okta, SIEM Tools, Stacklet, OpenSearch, Jamf, Sigma, Workato, AWS, Tableau, SQL, Python, Wireshark, Ubuntu, Drupal, Figma, Jira, Apple Software/Hardware, Windows, Data Analysis, MS Office Suite, Google GSuite</p>
-                </div>
-            </section>
-            
-            <!-- SECTION 3: PROFESSIONAL SKILLS -->
-            <section class="resume-section">
-                <h3 class="section-title">Skills</h3>
-                <div class="skill-category">
-                    <p>Leadership, Accountability, Collaboration & Teamwork, Communication, Problem-Solving, Adaptability, Detail Oriented</p>
-                </div>
-            </section>
-            
-            <!-- SECTION 4: CERTIFICATIONS -->
-            <section class="resume-section">
-                <h3 class="section-title">Certifications</h3>
-                <div class="certifications-list">
-                    <div class="cert-item">SentinelOne Endpoint Protection</div>
-                    <div class="cert-item">Google Cybersecurity Professional</div>
-                    <div class="cert-item">Microsoft IT Support Specialist Specialization</div>
-                    <div class="cert-item">InfoSec4TC</div>
-                    <div class="cert-item">Workato Pro I-III</div>
-                </div>
-            </section>
-            
-            <!-- SECTION 5: PROJECTS -->
-            <section class="resume-section">
-                <h3 class="section-title">Projects</h3>
-                <ul class="projects-list">
-                    <li>Ran risk assessment about cyber criminals and privileged insiders using Fairu</li>
-                    <li>Created virtual machine using vSphere Web Client and configured Active Directory with user permissions</li>
-                    <li>Utilized Wireshark to capture and analyze HTTP, TCP, DNS, DHCP, SMTP, POP & ARP traffic</li>
-                    <li>Created an IAM & Root user, Static Website, CloudFront, Windows instance & load balancer on AWS</li>
-                    <li>Implemented Python to create an HTTP server, client & UDP server & client using PyCharm</li>
+        </div>
+
+        <!-- SNAPSHOT -->
+        <div class="snapshot-label">
+            <h2>Quick Snapshot</h2>
+            <p>A high-level overview — download the full resume above for complete details.</p>
+        </div>
+
+        <div class="snapshot-grid">
+            <div class="snapshot-card">
+                <h3>Education</h3>
+                <ul>
+                    <li>M.S. Management Information Systems — University of Arizona (2025–Present)</li>
+                    <li>B.S. Business Administration in Management Information Systems — University of Arizona (2020–2024)</li>
                 </ul>
-            </section>
-            
-            <!-- SECTION 6: EXPERIENCE -->
-            <section class="resume-section">
-                <h3 class="section-title">Experience</h3>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4 class="job-title">AI Solutions Intern</h4>
-                        <p class="company">Workato Inc</p>
-                        <p class="duration">August 2025 - Present | Palo Alto, California</p>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Create documentation and Data Frame Diagram for Workato automations on Workato GO source crawling</li>
-                            <li>Attend customer calls to understand user requirements</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4 class="job-title">Security Operations Intern</h4>
-                        <p class="company">Workato Inc</p>
-                        <p class="duration">March 2025 - July 2025 | Palo Alto, California</p>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Monitored and triaged 20–50 SIEM alerts weekly, resolving Tier 1 incidents and documenting response actions, reducing escalation workload</li>
-                            <li>Designed 5+ Sigma dashboards leveraging Product Security Portal data, enabling the security team to track issue trends and improve decision-making efficiency, cutting report prep time by 30%</li>
-                            <li>Conducted QA testing of 100+ enterprise search queries in Workato GO, providing structured feedback that improved search result accuracy by 20% and reduced duplicate results</li>
-                            <li>Built an automated Genie notification system that flagged vulnerabilities from external sources in real-time, reducing detection-to-response lag by 10%</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4 class="job-title">Product Marketing Intern</h4>
-                        <p class="company">Workato Inc</p>
-                        <p class="duration">May 2020 - July 2020 | Mountain View, California</p>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Collaborated with one team member, contributing to five-person team to craft authentic customer stories</li>
-                            <li>Wrote, peer-reviewed scripts, and edited customer story videos using Adobe Premier Pro, ensuring compelling narratives</li>
-                            <li>Maintained consistent tone, pacing, and branding across all customer stories to enhance viewer engagement and product impact</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            </div>
+
+            <div class="snapshot-card">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>AirMDR, Zscaler, ZeroFox, SentinelOne</li>
+                    <li>Nmap, Metasploit, Nessus, John the Ripper</li>
+                    <li>Wireshark, OpenSearch, SIEM Tools</li>
+                    <li>AWS, Okta, Jamf, Stacklet</li>
+                    <li>Python, SQL, R, Sigma</li>
+                    <li>VirusTotal, Any.Run, Kali Linux</li>
+                </ul>
+            </div>
+
+            <div class="snapshot-card">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>SentinelOne Endpoint Protection</li>
+                    <li>Google Cybersecurity Professional</li>
+                    <li>Microsoft IT Support Specialist</li>
+                    <li>InfoSec4TC</li>
+                    <li>Workato Pro I–III</li>
+                </ul>
+            </div>
+
+            <div class="snapshot-card">
+                <h3>Key Projects</h3>
+                <ul>
+                    <li>Penetration testing lab (multi-host)</li>
+                    <li>Phishing URL ML detection model</li>
+                    <li>Deep learning fraud detection (200K transactions)</li>
+                    <li>SIEM alert triage & Sigma dashboards</li>
+                    <li>AWS IAM & cloud security configuration</li>
+                </ul>
+            </div>
         </div>
     </main>
     
@@ -656,14 +452,11 @@ NOTES:
     
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
-        
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
-            
             if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
