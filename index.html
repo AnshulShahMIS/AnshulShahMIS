@@ -126,7 +126,6 @@
             border-radius: 4px;
         }
 
-        /* HERO — true vertical center, no asymmetric padding offset */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -204,7 +203,6 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* FEATURES */
         .features {
             padding: 100px 40px;
             max-width: var(--max-width);
@@ -220,17 +218,8 @@
             width: 100%;
         }
 
-        .section-title::before {
-            content: '<';
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
-        .section-title::after {
-            content: '/>';
-            color: var(--accent);
-            margin-left: 10px;
-        }
+        .section-title::before { content: ''; }
+        .section-title::after { content: ''; }
 
         .features-grid {
             display: grid;
@@ -276,7 +265,6 @@
 
         .feature-card p { color: var(--text); line-height: 1.7; }
 
-        /* COURSEWORK */
         .stats {
             background: var(--secondary);
             padding: 80px 40px;
@@ -362,7 +350,6 @@
 
         .footer-bottom { text-align: center; color: var(--text); }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-container { padding: 15px 20px; }
             .menu-toggle { display: block; }
